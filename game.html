@@ -4,291 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <title>game</title>
+<link rel="stylesheet" href="css/myAnimation.css">
+<link rel="stylesheet" href="css/game.css">
+<link rel="stylesheet" href="css/messagebox.css">
     <link rel="stylesheet" href="css/shop.css">
     <link rel="stylesheet" href="css/animation.css"><!--[if IE 7]><link rel="stylesheet" href="css/shop-ie7.css"><![endif]-->
-    
-    <style>
-	*{padding:0;margin:0;font-family:微软雅黑}li{list-style:none}
-	body.night{background:#232323}
-	body.day{background:#fff}
-	#header{text-align:center;color:#5fb7e9;padding:20px 0;}
-	#header i{font-size:35px;position:relative;top:2px;}
-	#header span{font-size:20px;}
-	#header span.mine{color:#c0de88}
-	#header span.top{color:#67bfc9}
-	#main{
-		margin-top:50px;	
-	}
-	#main .start{
-		background:#98dc55;
-		width:170px;
-		height:70px;
-		line-height:70px;
-		text-align:center;
-		margin:0 auto;
-		border-radius:10px;
-	}
-	#main .start i{color:#fff;font-size:30px;}
-	#main .btnbox{
-		width:170px;
-		text-align:center;
-		margin:5px auto;
-		display: box;
-		display: -webkit-box;
-		display: -moz-box;
-		display: -ms-box;
-		display: flex;
-		display: -webkit-flex;
-	}
-	#main .btnbox li{
-		box-flex: 1;
-		-webkit-box-flex: 1;
-		-moz-box-flex: 1;
-		-ms-box-flex: 1;
-		flex: 1;
-		-webkit-flex: 1;
-		color:#fff;
-		height:53px;
-		line-height:53px;
-		border-radius:10px;
-		font-size:24px;
-	}
-	#main .btnbox li:nth-of-type(1){
-		background:#ffc63e	
-	}
-	#main .btnbox li:nth-of-type(2){
-		margin:0 5px;
-		background:#7d8ed4;
-		transform:rotate(270deg);
-		-ms-transform:rotate(270deg); 	/* IE 9 */
-		-moz-transform:rotate(270deg); 	/* Firefox */
-		-webkit-transform:rotate(270deg); /* Safari 和 Chrome */
-		-o-transform:rotate(270deg); 	/* Opera */
-	}
-	#main .btnbox li:nth-of-type(2) i{position:relative;bottom:2px;}
-	#main .btnbox li:nth-of-type(3){
-		background:#ed954b	
-	}
-	#set{
-		display:none;
-		position:fixed;bottom:0;width:100%;
-		height:100px;
-		background:#5cbde7;
-		-webkit-animation: 1s set ;
-		-moz-animation: 1s set ;
-		animation: 1s set;
-	}
-	#set .setlist{
-		padding-top:20px;
-			width:200px;
-			margin:0 auto;
-			text-align:center;
-	}
-	#set .setlist li{
-		display:inline-block;
-		width:53px;
-		height:53px;
-		line-height:53px;
-		border-radius:10px;
-		font-size:27px;
-		color:#5cbde7;
-		background:#fff;
-	}
-	#endgame{
-		display:none;
-		position:fixed;top:0px;width:100%;
-		height:100%;
-		-webkit-animation: 1s endgame ;
-		-moz-animation: 1s endgame ;
-		animation: 1s endgame;
-		
-	}
-	#endgame .end{
-		margin:0 auto;
-		width:100%;max-width:500px;
-		background:url(http://y0.ifengimg.com/news/game/caizi/images/fx.png);background-size:cover;
-	}
-	#endgame .endlist{
-			text-align:center;
-	}
-	#endgame .endlist li{
-		display:inline-block;
-		width:70px;
-		height:70px;
-		line-height:70px;
-		border-radius:10px;
-		font-size:27px;
-		color:#ffffff;
-		
-	}
-	#endgame .endlist li:nth-of-type(1){
-		background:#de6e5f
-		
-	}
-	#endgame .endlist li:nth-of-type(2){
-		background:#7e8ed5
-	}
-	@-webkit-keyframes endgame{
-	   0% {bottom:-100px;opacity: 0;}
-	  100% { bottom:0;opacity: 1;}
-	}
-	@-moz-keyframes endgame {
-	 0% {bottom:-100px;opacity: 0;}
-	  100% { bottom:0;opacity: 1;}
-	}
-	@keyframes endgame{
-	   0% {bottom:-100px;opacity: 0;}
-	  100% { bottom:0;opacity: 1;}
-	}
-	@-webkit-keyframes set {
-	  0% {bottom:-100px;}
-	  100% { bottom:0;}
-	}
-	@-moz-keyframes set {
-	  0% {bottom:-100px;}
-	  100% { bottom:0;}
-	}
-	@keyframes set{
-	  0% {bottom:-100px;}
-	  100% { bottom:0;}
-	}
-	@-webkit-keyframes game {
-	  0% {bottom:-100px;opacity: 0;}
-	  100% { bottom:0;opacity: 1;}
-	}
-	@-moz-keyframes game {
-	  0% {bottom:-100px;opacity: 0;}
-	  100% { bottom:0;opacity: 1;}
-	}
-	@keyframes game{
-	  0% {bottom:-100px;opacity: 0;}
-	  100% { bottom:0;opacity: 1;}
-	}
-	@-webkit-keyframes top {
-	  0% {left:-100px;opacity: 0;}
-	  100% { left:0;opacity: 1;}
-	}
-	@-moz-keyframes top {
-	  0% {left:-100px;opacity: 0;}
-	  100% { left:0;opacity: 1;}
-	}
-	@keyframes top{
-	  0% {left:-100px;opacity: 0;}
-	  100% { left:0;opacity: 1;}
-	}
-	#cover{
-		background:rgba(3,3,3,.5)	;
-		position:fixed;
-		top:0;
-		width:100%;
-		display:none;
-	}
-	#game{
-		width:90%;
-		max-width:450px;
-		margin:0 auto;
-		display:none;
-		position:relative;
-		-webkit-animation: 1s game ;
-		-moz-animation: 1s game ;
-		animation: 1s game;
-	}
-	.gamebody{
-		position:relative;	
-	}
-	.gamebody i{
-		background:rgb(225,225,225);
-		position:absolute;	
-		border-radius:4px;
-	}
-	.chosen-list{
-		margin:0 auto;
-	}
-	.chosen-list li{
-		position:absolute;	
-		cursor:pointer;
-	}
-	.chosen-list li i{
-		position:absolute;
-		border-radius:4px;
-	}
-	#stop{
-		position:absolute;
-		right:10px;
-		top:-40px;
-		font-size:24px;
-		color:#ffda94;
-	}
-	#toplist{
-        position:fixed;
-        top:0;
-        width:100%;
-        z-index:3;
-        display:none;
-        padding-top:20px;
-    }
-    #toplist li{
-        width:90%;
-        max-width:500px;
-        text-align:center;
-        color:#fff;
-        padding:10px 0;
-        margin:3px auto;
-        border-radius:10px;
-        position:relative;
-        -webkit-animation: 1s top ;
-		-moz-animation: 1s top ;
-		animation: 1s top;
-        display:none;
-        box-shadow:1px 1px 3px rgba(0,0,0,.5);
-    }
-    #toplist li:nth-of-type(5n+1){
-        background:rgb(221, 101, 85);
-    }
-    #toplist li:nth-of-type(5n+2){
-        background:rgb(237, 149, 75)
-    }
-    #toplist li:nth-of-type(5n+3){
-        background:rgb(255, 198, 62)
-    }
-    #toplist li:nth-of-type(5n+4){
-        background:rgb(152, 220, 85)
-    }
-    #toplist li:nth-of-type(5n){
-        background:#7d8ed4
-    }
-    #toplist li span{display:inline-block;}
-    #toplist li span:nth-of-type(1){width:15px;font-size:20px;}
-    #toplist li span:nth-of-type(2){width:80px;}
-    #toplist li span:nth-of-type(3){width:40px;}
-    #toplist li span:nth-of-type(4){width:150px;font-size:13px;}
-	</style>
 </head>
 
 <body class="day">
     <div id="header">
-<a href="game.html">test</a>
-        <span class="mine" id="score"></span><i class="icon-award"></i><span class="top">2000</span>
+        <span class="mine"></span><i class="icon-award"></i><span id="score"></span>
         <div id="showZB"></div>
         <div id="showOP"></div>
         <div id="showBODY" style="position:fixed;left:0;top:0;"></div>
         <div id="showCHECK" style="position:fixed;left:0;bottom:0;"></div>
     </div>
     <div id="main">
-    	<div class="start" id="start">
-        	<i class="icon-play"></i>
-        </div>
-    	<ul class="btnbox">
-        	<li id="openset">
-        		<i class="icon-cog"></i>
-            </li>
-            <li id="top">
-        		<i class="icon-align-left"></i>
-            </li>
-            <li>
-        		<i class="icon-star"></i>
-            </li>
-        </ul>
+    	<div id="menu1" class="oShow">
+      <div id="start"> <i class="icon-play"></i> </div>
+      <ul class="btnbox">
+        <li id="openset"> <i class="icon-cog"></i> </li>
+        <li id="top"> <i class="icon-chart-bar"></i> </li>
+        <li id="about"> <i class="icon-star"></i> </li>
+      </ul>
+  </div>
     </div>
     <div id="game">
     	<div id="stop"><i class="icon-pause"></i></div>
@@ -308,7 +47,7 @@
         </ul>
     </div>
     
-	  <div id="endgame">
+	  <div id="endgame" class="oShow">
       	<div class="end">
         	<div id="tip">最终分数</div>
             <ul class="endlist">
@@ -318,14 +57,14 @@
         </div>
     </div>
     <div id="toplist">
-        <p style="font-size:20px;text-align:center;color:#fff;padding-bottom:20px">排行榜</p>
-        <ul>
-            <li><span>1</span> <span>某某某</span> <span>111</span> <span>2015-3-11 15:00:00</span></li>
-            <li><span>2</span> <span>某某某</span> <span>111</span> <span>2015-3-11 15:00:00</span></li>
-            <li><span>3</span> <span>某某某</span> <span>111</span> <span>2015-3-11 15:00:00</span></li>
-            <li><span>4</span> <span>某某某</span> <span>111</span> <span>2015-3-11 15:00:00</span></li>
-            <li><span>5</span> <span>某某某</span> <span>111</span> <span>2015-3-11 15:00:00</span></li>
-        </ul>
+        <p style="font-size:20px;text-align:center;color:#fff;padding-bottom:20px">排行榜<span style="font-size:.7em">（数据库缺乏）</span></p>
+  <ul>
+    <li><span>1</span> <span>Mr.Wang</span> <span>111</span> <span>2015-3-11 15:00:00</span></li>
+    <li><span>2</span> <span>小明	</span> <span>111</span> <span>2015-3-11 15:00:00</span></li>
+    <li><span>3</span> <span>小红</span> <span>111</span> <span>2015-3-11 15:00:00</span></li>
+    <li><span>4</span> <span>小刚</span> <span>111</span> <span>2015-3-11 15:00:00</span></li>
+    <li><span>5</span> <span>小明的爸小花</span> <span>111</span> <span>2015-3-11 15:00:00</span></li>
+  </ul>
 
     </div>
     <div id="cover"> </div>
@@ -333,109 +72,130 @@
     	<ul class="setlist">
         	<li id="home" style="display:none"><i class="icon-home"></i></li>
         	<li id="day"><i class="icon-moon-inv"></i></li>
-            <li id="music"><i class="icon-volume-off"></i></li>
+            <li id="music" style="display:none"><i class="icon-volume-off"></i></li>
         </ul>
     </div>
+    <div id="aboutbox" class="oShow">
+	<div class="content">
+    	<div style="text-align:center;font-size:2em"><i class="icon-trophy"></i></div>
+        <p>关于游戏：</p>
+        <p style="text-align:center">开放源码，见托管项目<br><a href="https://github.com/wangmoumei/1010/"  target="_blank"><i class="icon-github-circled"></i>Github</a></p>
+    </div>
+</div>
     <script>
-	var d = document;
-	var height = d.documentElement.clientHeight;
-	var width = d.documentElement.clientWidth;
-	var cover = d.getElementById('cover');
-	cover.style.height = height + 'px';
-	document.getElementById('main').style.marginTop = (height - 128) / 2 -106 +"px";
-	document.getElementById('day').onclick = function(){
-			var body = document.body;
-			if(body.className == 'day') {
-				body.className="night";
-				this.getElementsByTagName('i')[0].className = 'icon-sun';
-			}
-			else{
-				 body.className = 'day';
-				 this.getElementsByTagName('i')[0].className = 'icon-moon-inv';
-			}
-			//document.getElementById('set').style.display = "none";
-	}
-	document.getElementById('music').onclick = function(){
-			var i = this.getElementsByTagName('i')[0];
-			(i.className == 'icon-volume-off') ? i.className = 'icon-volume-down' : i.className = 'icon-volume-off';
-	}
-	document.getElementById('openset').onclick = function(){
-		var set = document.getElementById('set');
-		if(set.style.display == "block") {
-			set.style.display = "none" ;
-			}
-			
-			else 	{
-				set.style.display = "block";
-				cover.style.display = "block";
-			}
-	}
-	cover.onclick = function(){
-		document.getElementById('set').style.display = "none" ;
-		document.getElementById('toplist').style.display = "none" ;
-		var li = toplist.getElementsByTagName("li");
-		for(var i=0;i<li.length;i++)li[i].style.display = "none";
-		this.style.display = "none" ;
-		document.getElementById('stop').getElementsByTagName('i')[0].className = "icon-pause";
-	}
-	var aaa=new game(); ;
-	document.getElementById('start').onclick = function(){
-		document.getElementById('main').style.display="none";
-		document.getElementById('game').style.display="block";
-		document.getElementById('home1').style.display="inline-block";
-		document.getElementById('home').style.display="inline-block";
-		document.getElementById('replay').style.display="inline-block";
-		aaa.init();
-	}
-	document.getElementById('stop').onclick = function(){
-		
-		var set = document.getElementById('set');
-		if(set.style.display == "block") {
-			set.style.display = "none" ;
-			this.getElementsByTagName('i')[0].className = "icon-pause";
+var d = document,gm=new game(); 
+function gd(id){return d.getElementById(id)||null;};
+function s(e,c){e.style.display="block";e.className = c;c = e.className;e.className = c.replace(/Hide/, "Show");}
+function h(e,time){var c = e.className;e.className = c.replace(/Show/, "Hide");setTimeout(function(){e.style.display = "none"},time||600)};
+function sul(ul,c,t){
+	if(typeof c == 'number'){t=c;c=null;}
+	ul.style.display = "block";
+	ul.style.height = ul.clientHeight + "px";
+	var lst = ul.getElementsByTagName("li");
+	for(var i=0;i<lst.length;i++)lst[i].style.display = "none";
+	var i = 0;
+	lst[i].style.display = "block";
+	lst[i].className = c||"oShow";
+	var timer = setInterval(function(){
+		i++;
+		if(i>=lst.length) clearInterval(timer);
+		else{
+			lst[i].style.display = "block";
+			lst[i].className = c||"oShow";
 		}
-		else 	{
-			set.style.display = "block";
-			cover.style.display = "block";
-			this.getElementsByTagName('i')[0].className = "icon-play";
+	},t||300);
+}
+function aH(){var c=this.className;if(c.match(/Hide/)!=null){this.style.display = "none";this.className=c.replace(/Hide/, "Show")}}
+var height = d.documentElement.clientHeight;
+var width = d.documentElement.clientWidth;
+var cover = gd('cover'),setting = gd('set'),toplist = gd('toplist'),menu = gd('main'),about = gd("aboutbox")
+,menu1 = gd("menu1"),gameMain = gd("game"),gameend = gd("endgame");
+cover.addEventListener("webkitAnimationEnd",aH);
+setting.addEventListener("webkitAnimationEnd",aH);
+menu.addEventListener("webkitAnimationEnd",aH);
+about.addEventListener("webkitAnimationEnd",aH);
+gameend.addEventListener("webkitAnimationEnd",aH);
+cover.style.height = height + 'px';
+menu.style.marginTop = (height - 128) / 2 -106 +"px";
+toplist.style.marginTop = (height - 375) / 2 + 'px';
+
+cover.onclick = function(){
+	h(setting);h(cover);h(about);h(toplist);
+	var li = toplist.getElementsByTagName("li");
+	for(var i=0;i<li.length;i++)li[i].style.display = "none";
+	d.getElementById('stop').getElementsByTagName('i')[0].className = "icon-pause";
+}
+gd('day').onclick = function(){
+		var body = document.body;
+		if(body.className == 'day') {
+			body.className="night";
+			this.getElementsByTagName('i')[0].className = 'icon-sun';
 		}
+		else{
+			 body.className = 'day';
+			 this.getElementsByTagName('i')[0].className = 'icon-moon-inv';
+		}
+		//document.getElementById('set').style.display = "none";
+}
+gd('music').onclick = function(){
+		var i = this.getElementsByTagName('i')[0];
+		(i.className == 'icon-volume-off') ? i.className = 'icon-volume-down' : i.className = 'icon-volume-off';
+}
+gd('openset').onclick = function(){
+	if(setting.style.display == "block") h(setting);
+	else 	{
+		s(setting,"bShow");
+		s(cover,"oShow");
 	}
+}
+gd("about").onclick = function(){
+	if(about.style.display == "block") h(about);
+	else 	{
+		s(about,"oShow");
+		s(cover,"oShow");
+	}
+}
+
+gd('start').onclick = function(){
+	gd('home1').style.display="inline-block";
+	gd('home').style.display="inline-block";
+	gd('replay').style.display="inline-block";
+	h(menu1);h(menu);
+	setTimeout(function(){
+		s(gameMain,"oShow");
+		gm.init();
+	},600);
+}
+gd('stop').onclick = function(){
+	if(setting.style.display == "block") h(setting);
+	else 	{
+		s(setting,"bShow");
+		s(cover,"oShow");
+	}
+}
 	
-	document.getElementById('home').onclick = function(){
-				document.getElementById('main').style.display="block";
-				document.getElementById('game').style.display="none";
-				document.getElementById('replay').style.display="none";
-				document.getElementById('endgame').style.display="none";
-				this.style.display="none";
-				cover.click();
+gd('home').onclick = function(){
+					h(cover);h(gameend);h(gameMain);h(setting);
+	setTimeout(function(){
+		s(menu,"oShow");s(menu1,"oShow");
+	},600);
+				gd('replay').style.display="none";
 }	
-document.getElementById('home1').onclick = function(){
-				document.getElementById('main').style.display="block";
-				document.getElementById('game').style.display="none";
-				document.getElementById('replay').style.display="none";
-				document.getElementById('endgame').style.display="none";
-				document.getElementById('home').style.display="none";
-				this.style.display="none";
-				cover.click();
+gd('home1').onclick = function(){
+	h(cover);h(gameend);h(gameMain);
+	setTimeout(function(){
+		s(menu,"oShow");s(menu1,"oShow");
+	},600);
+				gd('replay').style.display="none";
+				gd('home').style.display="none";
 }	
 document.getElementById('replay').onclick = function(){
-	document.getElementById('endgame').style.display="none";
-	aaa.init();
+	h(gd('endgame'));
+	gm.init();
 }
-document.getElementById("top").onclick = function () {
-	    var lst = document.getElementById("toplist");
-	    cover.style.display = "block";
-	    lst.style.display = "block";
-	    lst.style.paddingTop = (height - 375) / 2 + 'px';
-	    var li = lst.getElementsByTagName("li");
-	    li[0].style.display = "block";
-	    var n = 0;
-	    var timer = setInterval(function () {
-	        n++;
-	        li[n].style.display = "block";
-	        if (n == 4) clearInterval(timer);
-	    }, 300);
-	}
+gd("top").onclick = function () {
+	s(cover,"oShow");s(toplist,"oShow");sul(toplist.getElementsByTagName("ul")[0],"lShow");
+}
 function game(){
 		var obj = this;
 		this.gamenum = 0;
@@ -629,8 +389,8 @@ function game(){
 					var x = e.clientX  || e.pageX, 
 					y = e.clientY  || e.pageY ;
 					//document.getElementById('showZB').innerHTML =(x-3*obj.size) + " || " + (y-3*obj.size) + "||" +obj.game.offsetLeft + "||" +obj.game.offsetTop ;
-					this.style.left = x - obj.game.offsetLeft - obj.size *2 + 'px';
-					this.style.top = y - obj.game.offsetTop - obj.size *2 + 'px'; 
+					obj.option[obj.opnum].e.style.left = x - obj.game.offsetLeft - obj.size *2 + 'px';
+					obj.option[obj.opnum].e.style.top = y - obj.game.offsetTop - obj.size *2 + 'px'; 
 				}
 			}
 			function moveend(e){
@@ -660,9 +420,8 @@ function game(){
 					if(obj.option[0].e.innerHTML=="" && obj.option[1].e.innerHTML=="" &&obj.option[2].e.innerHTML=="")
 						obj.random();
 					if(obj.checkend()){
-						//cover.click();
-						//cover.style.display = "block";
-						document.getElementById('endgame').style.display="block";
+						s(gameend,"oShow")
+						gd("tip").innerHTML = "<p style='margin-bottom:40px'>你的最终得分是" + obj.score + "!</p>";
 						var endbox = document.getElementById('endgame').getElementsByTagName("div")[0];
 						endbox.style.padding=(height-90)/2+"px 0" ;
 					}
@@ -753,8 +512,6 @@ function game(){
 					else
 						obj.score += (n.length + o.length) *10 + obj.option[obj.opnum].num;
 					obj.fx(old,obj.score,function(x){obj.scorebox.innerHTML=Math.floor(x);},function(){},400,.3)
-					//document.getElementById('showBODY').innerHTML = obj.body;
-					//document.getElementById('showBODY').innerHTML+="//"+n;
 					
 		}
 		this.checkend = function(){
@@ -817,7 +574,6 @@ function game(){
 			obj.reset(0,x,Math.floor(Math.random()*obj.color.length));
 			obj.reset(1,y,Math.floor(Math.random()*obj.color.length));
 			obj.reset(2,z,Math.floor(Math.random()*obj.color.length));
-			//document.getElementById('showOP').innerHTML = obj.option[0].shape + "//" +obj.option[0].color +'||'+ obj.option[1].shape + "//" +obj.option[1].color  +'||'+  obj.option[2].shape + "//" +obj.option[2].color;
 		}
 		this.reset = function(element,shape,color){
 					var str = "";

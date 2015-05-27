@@ -1,0 +1,307 @@
+@charset "utf-8";
+* {padding: 0;margin: 0;font-family: 微软雅黑}li{list-style: none}a{color:#333;}
+body{transition:background-color 1s ease-in;font-size:20px;}
+body.night {
+	background: #232323
+}
+body.day {
+	background: #fff
+}
+#header {
+	font-size:.8em;
+	text-align: center;
+	color: #5fb7e9;
+	padding: 20px 0;
+}
+#header i {
+	font-size: 35px;
+	position: relative;
+	top: 2px;
+}
+#header span {
+	font-size: 20px;
+}
+#header span.mine {
+	color: #c0de88
+}
+#header span.top {
+	color: #67bfc9
+}
+#main {
+	font-size:.8em;
+	margin-top: 50px;
+	color:#fff;
+	position:relative;
+}
+#menu1,#menu2{ width:170px;margin:0 auto}
+#main #menu1 div {
+	transition:background-color .3s ease-in;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	border-radius: 10px;
+}
+#main #menu1 div:nth-of-type(1){background: #98dc55;}
+#main #menu1 div:nth-of-type(2){background: #34c69f;}
+#main  #menu1 div i {font-size: 30px;}
+#menu2 li{
+	transition:background-color .3s ease-in;
+	position:relative;
+	text-align:center;
+	border-radius:10px;
+	height:60px;
+	line-height: 60px;
+	margin:5px 0;
+}
+#menu2 li i{font-size:1.6em;position:relative;top:2px;left:-4px;}
+#menu2 li:nth-of-type(1){background:#f49c14}
+#menu2 li:nth-of-type(2){background:#3598dc}
+#menu2 li:nth-of-type(3){background:#2fcc71}
+#returnMenu{
+	transition:background-color .3s ease-in;
+	width:50px;height:50px;line-height:48px;
+	background:#e84c3d;
+	text-align:center;
+	margin:50px auto 0 auto;
+	border-radius:50px;
+	font-size:1.4em;
+	position:relative;bottom:0;
+}
+#main .btnbox {
+	text-align: center;
+	margin: 5px auto;
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-box;
+	display: flex;
+	display: -webkit-flex;
+}
+#main .btnbox li {
+	transition:background-color .3s ease-in;
+	box-flex: 1;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-ms-box-flex: 1;
+	flex: 1;
+	-webkit-flex: 1;
+	color: #fff;
+	height: 53px;
+	line-height: 53px;
+	border-radius: 10px;
+	font-size: 24px;
+}
+#main .btnbox li:nth-of-type(1) {background: #ffc63e}
+#main .btnbox li:nth-of-type(2) {margin: 0 5px;background: #7d8ed4;}
+#main .btnbox li:nth-of-type(3) {background: #ed954b}
+#main  #menu1 div:hover,#menu2 li:hover,#main .btnbox li:hover,#returnMenu:hover{background:#54d5eb;transition:background-color .5s ease-in;}
+#set {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	left:0;
+	width: 100%;
+	height: 100px;
+	background: #5cbde7;
+}
+#set .setlist {
+	padding-top: 20px;
+	width: 200px;
+	margin: 0 auto;
+	text-align: center;
+}
+#set .setlist li {
+	display: inline-block;
+	width: 53px;
+	height: 53px;
+	line-height: 53px;
+	border-radius: 10px;
+	font-size: 27px;
+	color: #5cbde7;
+	background: #fff;
+}
+#endgame {
+	font-size:.8em;
+	display: none;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+#endgame .end {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 500px;
+	background: rgba(0,0,0,.3);
+	background-size: cover;
+}
+#endgame .endlist {
+	text-align: center;
+}
+#endgame .endlist li {
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	border-radius: 10px;
+	font-size: 27px;
+	color: #ffffff;
+}
+#endgame .endlist li:nth-of-type(1) {
+	background: #de6e5f
+}
+#endgame .endlist li:nth-of-type(2) {
+	background: #7e8ed5
+}
+#endgame #tip{
+	text-align:center;
+	color:#fff;
+		
+}
+ 
+#cover {
+	background: rgba(3,3,3,.5);
+	position: fixed;
+	top: 0;left:0;
+	width: 100%;
+	display: none;
+}
+#game {
+	width: 90%;
+	max-width: 450px;
+	margin: 0 auto;
+	display: none;
+	position: relative;
+}
+.gamebody {
+	position: relative;
+}
+.gamebody i {
+	background: rgb(225,225,225);
+	position: absolute;
+	border-radius: 4px;
+}
+.chosen-list {
+	margin: 0 auto;
+}
+.chosen-list li {
+	position: absolute;
+	cursor: pointer;
+}
+.chosen-list li i {
+	position: absolute;
+	border-radius: 4px;
+}
+#stop {
+	position: absolute;
+	right: 10px;
+	top: -40px;
+	font-size: 24px;
+	color: #ffda94;
+}
+#toplist {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 3;
+	display: none;
+	padding-top: 20px;
+}
+#toplist li {
+	font-size:.8em;
+	width: 90%;
+	max-width: 500px;
+	text-align: center;
+	color: #fff;
+	padding: 10px 0;
+	margin: 3px auto;
+	border-radius: 10px;
+	position: relative;
+	display: none;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.5);
+}
+#toplist li:nth-of-type(5n+1) {
+	background: rgb(221, 101, 85);
+}
+#toplist li:nth-of-type(5n+2) {
+	background: rgb(237, 149, 75)
+}
+#toplist li:nth-of-type(5n+3) {
+	background: rgb(255, 198, 62)
+}
+#toplist li:nth-of-type(5n+4) {
+	background: rgb(152, 220, 85)
+}
+#toplist li:nth-of-type(5n) {
+	background: #7d8ed4
+}
+#toplist li span {
+	display: inline-block;
+}
+#toplist li span:nth-of-type(1) {
+	width: 15px;
+	font-size: 20px;
+}
+#toplist li span:nth-of-type(2) {
+	width: 80px;
+}
+#toplist li span:nth-of-type(3) {
+	width: 40px;
+}
+#toplist li span:nth-of-type(4) {
+	width: 150px;
+	font-size: 13px;
+}
+
+#aboutbox{
+	font-size:.8em;
+	position:fixed;
+	z-index: 3;
+	top:40%;
+	left:0;
+	width:100%;
+	display:none;	
+}
+#aboutbox .content{
+width:200px;
+padding:10px;
+margin:0 auto;
+border-radius:6px;
+background:#1fbba6;
+color:#fff;	
+}
+#aboutbox .content a{color:#fff;}
+/*loading 样式*/
+@-webkit-keyframes ajax-loader-rotate {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes ajax-loader-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes ajax-loader-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.ajax-loader {
+  opacity: .8;
+  display: block;
+  border-radius: 50%;
+
+  font-size: 29px;
+  width: .25em;
+  height: .25em;
+
+  box-shadow:
+    0 -.4em       0 0 rgba(0,0,0,1),
+    -.28em -.28em 0 0 rgba(0,0,0,.75),
+    -.4em 0       0 0 rgba(0,0,0,.50),
+    -.28em .28em  0 0 rgba(0,0,0,.25)
+  ;
+
+  -webkit-animation: .85s ajax-loader-rotate steps(8) infinite;
+  -moz-animation: .85s ajax-loader-rotate steps(8) infinite;
+  animation: .85s ajax-loader-rotate steps(8) infinite;
+}
